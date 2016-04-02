@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js 'test/**/*.@(js|jsx)'",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "build": "NODE_ENV=production webpack"
   },
   "babel": {
     "presets": [
@@ -38,14 +39,19 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "chart.js": "^1.1.0",
     "firebase": "^2.4.1",
-    "history": "^1.17.0",
     "immutable": "^3.7.6",
-    "normalize.css": "^3.0.3",
+    "js-cookie": "^2.1.0",
+    "material-ui": "^0.15.0-alpha.1",
+    "ramda": "^0.20.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.6",
     "react-redux": "^4.1.2",
-    "react-router": "^2.0.0-rc5",
-    "redux": "^3.1.1"
+    "react-router": "^2.0.1",
+    "react-tap-event-plugin": "^0.2.2",
+    "redux": "^3.1.1",
+    "redux-form": "^4.2.2",
+    "redux-thunk": "^2.0.1"
   }
 }

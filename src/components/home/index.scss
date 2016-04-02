@@ -1,5 +1,11 @@
-header {
-  h1 {
-    text-align: center;
+main {
+  text-align: center;
+  background-color: #F7F7F7;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  .app-container {
+    transform: translateY(-40%);
   }
 }

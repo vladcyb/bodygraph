@@ -1,22 +1,26 @@
-var webpack = require('webpack');
+const webpack = require('webpack');
+const path    = require('path');
 
-module.exports = {
+require('dotenv').config();
+
+const config = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
     './src/index.jsx'
   ],
   output: {
-    path: __dirname + '/dist',
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     filename: 'bundle.js'
   },
   devServer: {
     contentBase: './dist',
     hot: true,
-     historyApiFallback: true
+    historyApiFallback: true,
   },
   devtool: 'inline-source-map',
+  noInfo: true,
   module: {
     loaders: [
       {
@@ -40,6 +44,25 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      FIREBASE_URL: JSON.stringify(process.env.FIREBASE_URL)
+    })
   ]
 };
+
+if (process.env.NODE_ENV === "production") {
+  const productionPlugins = [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
+  ];
+  productionPlugins.forEach((plugin) => config.plugins.push(plugin));
+}
+
+module.exports = config;

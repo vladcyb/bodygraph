@@ -1,35 +1,15 @@
-require('./index.scss');
-import React                            from 'react';
-import {render}                         from 'react-dom';
-import {Router, Route, browserHistory}  from 'react-router';
-import {createStore, applyMiddleware}   from 'redux';
-import {Provider}                       from 'react-redux';
-import Firebase                         from 'firebase'
-import reducer                          from './reducer';
-import {setState}                       from './action-creators';
-import remoteActionMiddleware           from './remote-action-middleware';
-import App                              from './components/app';
-import Home                             from './components/home';
-import {VotingContainer}                from './components/voting';
-import {ResultsContainer}               from './components/results';
+import                      './index.scss';
+import React                from 'react';
+import {render}             from 'react-dom';
+import {Provider}           from 'react-redux';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import routes               from './routes';
+import store                from './store';
 
-//const socket = io(`${location.protocol}//${location.hostname}:8090`);
-//socket.on('state', state => store.dispatch(setState(state)));
-
-//const createStoreWithMiddleware = applyMiddleware(
-  //remoteActionMiddleware(socket)
-//)(createStore);
-const firebaseRef = new Firebase('https://freddy-weight-tracke.firebaseio.com/');
-const store = createStore(reducer);
+injectTapEventPlugin();
 
 const app = <Provider store={store}>
-  <Router history={browserHistory}>
-    <Route component={App}>
-      <Route path="/" component={Home} />
-      <Route path="/results" component={ResultsContainer} />
-    </Route>
-  </Router>
+  {routes}
 </Provider>;
 
-const targetElement = document.getElementById('app');
-render(app, targetElement);
+render(app, document.getElementById('app'));

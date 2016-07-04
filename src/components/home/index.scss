@@ -5,7 +5,13 @@ main {
   display: flex;
   align-items: center;
   justify-content:center;
+
   .app-container {
     transform: translateY(-40%);
+  }
+
+  .btn-register {
+    text-decoration: underline;
+    color: blue;
   }
 }

@@ -1,13 +1,16 @@
+require('dotenv').config();
+
 const webpack = require('webpack');
 const path    = require('path');
 
-require('dotenv').config();
+const NODE_ENV = process.env.NODE_ENV;
+const IS_PROD = NODE_ENV === 'production'
 
 const config = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    './src/index.jsx'
+    './src/entry.jsx'
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -19,7 +22,7 @@ const config = {
     hot: true,
     historyApiFallback: true,
   },
-  devtool: 'inline-source-map',
+  devtool: IS_PROD ? 'source-map' : 'inline-source-map',
   noInfo: true,
   module: {
     loaders: [
@@ -41,6 +44,11 @@ const config = {
     ]
   },
   resolve: {
+    modulesDirectories: [
+        `${__dirname}/node_modules`,
+        `${__dirname}/src`,
+        `${__dirname}/src/lib`,
+    ],
     extensions: ['', '.js', '.jsx']
   },
   plugins: [
@@ -51,7 +59,7 @@ const config = {
   ]
 };
 
-if (process.env.NODE_ENV === "production") {
+if (IS_PROD) {
   const productionPlugins = [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')

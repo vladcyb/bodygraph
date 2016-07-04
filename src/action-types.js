@@ -1,0 +1,15 @@
+export const FETCH_USER_BODY_DATA_REQUESTED = 'FETCH_USER_BODY_DATA_REQUESTED';
+export const FETCH_USER_BODY_DATA_SUCCEEDED = 'FETCH_USER_BODY_DATA_SUCCEEDED';
+export const FETCH_USER_BODY_DATA_FAILED    = 'FETCH_USER_BODY_DATA_FAILED';
+export const SUBMIT_BODY_DATA_REQUESTED     = 'SUBMIT_BODY_DATA_REQUESTED';
+export const SUBMIT_BODY_DATA_SUCCEEDED     = 'SUBMIT_BODY_DATA_SUCCEEDED';
+export const SUBMIT_BODY_DATA_FAILED        = 'SUBMIT_BODY_DATA_FAILED';
+export const SIGN_OUT_REQUESTED             = 'SIGN_OUT_REQUESTED';
+export const SIGN_OUT_FAILED                = 'SIGN_OUT_FAILED';
+export const SIGN_OUT_SUCCEEDED             = 'SIGN_OUT_SUCCEEDED';
+export const SIGN_IN_REQUESTED              = 'SIGN_IN_REQUESTED';
+export const SIGN_IN_SUCCEEDED              = 'SIGN_IN_SUCCEEDED';
+export const SIGN_IN_FAILED                 = 'SIGN_IN_FAILED';
+export const SIGN_UP_REQUESTED              = 'SIGN_UP_REQUESTED';
+export const SIGN_UP_SUCCEEDED              = 'SIGN_UP_SUCCEEDED';
+export const SIGN_UP_FAILED                 = 'SIGN_UP_FAILED';

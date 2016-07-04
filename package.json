@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --host 0.0.0.0 --port 8080 --content-base ./ --history-api-fallback --inline --hot --colors",
+    "start": "webpack-dev-server --host 0.0.0.0 --port 8080 --content-base ./dist --history-api-fallback --inline --hot --colors",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js 'test/**/*.@(js|jsx)'",
     "test:watch": "npm run test -- --watch",
     "build": "NODE_ENV=production webpack"

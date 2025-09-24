@@ -1,0 +1,28 @@
+# Системные и IDE-файлы
+.idea
+.vscode
+*.swp
+*.swo
+
+# Git
+.git
+.gitignore
+
+# Node.js
+node_modules
+
+# Windows / Mac OS
+*.exe
+*.dll
+*.bat
+*.sh
+.DS_Store
+Thumbs.db
+
+# Логи
+*.log
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore

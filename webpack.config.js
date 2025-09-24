@@ -21,6 +21,9 @@ const config = {
     contentBase: './dist',
     hot: true,
     historyApiFallback: true,
+    stats: {
+      chunkModules: false
+    }
   },
   devtool: IS_PROD ? 'source-map' : 'inline-source-map',
   noInfo: true,

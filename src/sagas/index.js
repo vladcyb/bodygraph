@@ -8,7 +8,7 @@ import { createSession, destroySession } from 'auth';
 import * as actions                      from 'action-types';
 import { fromJS }                        from 'immutable';
 
-const ref = new Firebase(FIREBASE_URL);
+const ref = new Firebase("bodygraph-23380.firebaseio.com");
 
 export default function* rootSaga() {
   yield [

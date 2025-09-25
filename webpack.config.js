@@ -55,10 +55,7 @@ const config = {
     extensions: ['', '.js', '.jsx']
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin({
-      FIREBASE_URL: JSON.stringify(process.env.FIREBASE_URL)
-    })
+    new webpack.HotModuleReplacementPlugin()
   ]
 };
 

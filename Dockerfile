@@ -22,18 +22,13 @@ RUN set -eux; \
 # копируем только package.json
 COPY package.json ./
 
-# устанавливаем зависимости (dev тоже, т.к. нужен webpack-dev-server)
-RUN set -eux; \
-  npm install; \
-  ls -la node_modules/.bin | grep webpack-dev-server
+RUN npm install
 
 COPY src ./src
 
 COPY dist ./dist
 
 COPY webpack.config.js ./
-
-COPY .env ./
 
 EXPOSE 8080
 
